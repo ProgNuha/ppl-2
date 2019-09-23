@@ -1,7 +1,10 @@
 <div id="wrapper">
 
 
+<div class="sidebar-brand-text">
 
+ADMIN
+</div>
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
   <li class="nav-item active">
