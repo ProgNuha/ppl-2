@@ -12,14 +12,20 @@
   </a>
   <hr class="sidebar-divider my-0">
   <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="<?php echo base_url('admin/Dashboard_admin')?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="<?php echo base_url('admin/Input_good')?>">
+      <i class="fas fa-database"></i>
       <span>Goods</span>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-      <i class="fab fa-shirtsinbulk"></i>
+    <a class="nav-link" href="<?php echo base_url('admin/Invoices')?>">
+      <i class="fas fa-file-invoice"></i>
       <span>Invoices</span></a>
   </li>
 </ul>

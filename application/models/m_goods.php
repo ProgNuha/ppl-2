@@ -6,4 +6,18 @@ class M_goods extends CI_Model {
 	{
 		return $this->db->get('goods');
 	}
+
+	public function find($id){
+		$result = $this->db->where('code', $id)->limit(1)->get('goods');
+
+		if($result->num_rows() > 0){
+			return $result->row();  
+		} else {
+			return null;
+		}
+	}
+
+	public function add_good($data,$table){
+		$this->db->insert($table,$data); 
+	}
 }

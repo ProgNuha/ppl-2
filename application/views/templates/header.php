@@ -44,6 +44,15 @@
       </div>
     </form>
 
+    <div class="navbar">
+      <ul class="nav navbar-nav navbar-right ">
+        <li>
+          <?php $cart = 'Cart: '.$this->cart->total_items(). ' items'?>
+          <?php echo $cart?>
+        </li>
+      </ul>
+    </div>
+
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow">
