@@ -29,7 +29,7 @@ class Cart extends CI_Controller{
                     <td>'.number_format($items['price']).'</td>
                     <td>
                         <div class="form-label-group">
-                        <input type="number" class="form-control text-center" value="'.$items['qty'].'">
+                        <input type="text" class="form-control text-center" value="'.$items['qty'].'">
                         </div>
                     </td>
                     <td>'.number_format($items['subtotal']).'</td>

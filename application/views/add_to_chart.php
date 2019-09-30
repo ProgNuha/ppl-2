@@ -15,31 +15,8 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
-            <?php $no = 0; 
-                foreach ($this->cart->contents() as $items) : 
-                $no++;?>
-
-            <tr>
-                <td><?php echo $items['name']?></td>
-                <td><?php echo number_format($items['price'])?></td>
-                <td>
-                    <div class="form-label-group">
-                    <input type="number" class="form-control text-center" value="<?php echo $items['qty']?>">
-                    </div>
-                </td>
-                <td><?php echo number_format($items['subtotal'])?></td>
-                <td><button type="button" id="<?php $items['rowid']?>" class="delete_cart btn btn-danger btn-xs">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-                </button></td>
-            </tr>
-
-            <?php endforeach; ?>
-
-            <tr>
-                <th colspan="3">Total</th>
-                <th colspan="2">Rp <?php echo number_format($this->cart->total())?> </th>
-            </tr>
+        <tbody id="detail_cart">
+            
         </tbody>
             
     </table>
@@ -67,9 +44,8 @@
             });
         });
 
-        //Destrpy Item Cart
+        //Destrpoy Cart
         $(document).on('click','.destroy_cart',function(){
-            var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
             $.ajax({
                 url : "<?php echo base_url();?>cart/destroy_cart",
                 method : "POST",
