@@ -11,20 +11,26 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function add_to_cart($id){
-		$good = $this->m_goods->find($id);
+	public function add_to_cart(){
+		$id     = $this->input->post('id');
+		$qty      = $this->input->post('qty');
+		$price      = $this->input->post('price');
+		$name      = $this->input->post('name');
+		
 		$data = array(
-			'id'      => $good->code,
-			'qty'     => 1,
-			'price'   => $good->price,
-			'name'    => $good->name,
-			'info' 	  => $good->info
+			'id'      => $id,
+			'qty'     => $qty,
+			'price'   => $price,
+			'name'    => $name
 		);
-	
+
 		$this->cart->insert($data);
+		$_data['data'] =  $data;
+		
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
-		$this->load->view('add_to_chart', $data);
+		$this->load->view('add_to_chart', $_data);
+		// $this->load->view('add_to_chart');
 		$this->load->view('templates/footer');
 	}
 
