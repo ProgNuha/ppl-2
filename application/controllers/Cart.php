@@ -27,10 +27,14 @@ class Cart extends CI_Controller{
                 <tr>
                     <td>'.$items['name'].'</td>
                     <td>'.number_format($items['price']).'</td>
-                    <td>'.$items['qty'].'</td>
+                    <td>
+                        <div class="form-label-group">
+                        <input type="number" class="form-control text-center" value="'.$items['qty'].'">
+                        </div>
+                    </td>
                     <td>'.number_format($items['subtotal']).'</td>
                     <td><button type="button" id="'.$items['rowid'].'" class="delete_cart btn btn-danger btn-xs">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i class="fa fa-minus" aria-hidden="true"></i>
                     </button></td>
                 </tr>
             ';
@@ -59,6 +63,26 @@ class Cart extends CI_Controller{
 
     function destroy_cart(){
         $this->cart->destroy();
+    }
+
+    function updateItemQty(){
+        $update = 0;
+        
+        // Get cart item info
+        $rowid = $this->input->get('rowid');
+        $qty = $this->input->get('qty');
+        
+        // Update item in the cart
+        if(!empty($rowid) && !empty($qty)){
+            $data = array(
+                'rowid' => $rowid,
+                'qty'   => $qty
+            );
+            $update = $this->cart->update($data);
+        }
+        
+        // Return response
+        echo $update?'ok':'err';
     }
 
 }

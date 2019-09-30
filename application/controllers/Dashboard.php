@@ -40,4 +40,5 @@ class Dashboard extends CI_Controller {
 		$this->load->view('add_to_chart');
 		$this->load->view('templates/footer');
 	}
+	
 }
